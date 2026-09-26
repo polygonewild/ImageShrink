@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ImageShrink — Free Offline Batch Image Resizer for Windows</title>
+
+  <meta name="description" content="Resize and compress hundreds of images locally on Windows. Batch resize by dimensions, percentage or target file size. No uploads, no account.">
+
+  <link rel="canonical" href="https://polygonewild.github.io/ImageShrink/">
+
+  <meta property="og:title" content="ImageShrink — Offline Batch Image Resizer">
+  <meta property="og:description" content="Resize and compress multiple images locally on Windows. No uploads, no account, no subscription.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://polygonewild.github.io/ImageShrink/">
+
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ImageShrink",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Windows",
+    "description": "Offline batch image resizer and compressor for Windows. Resize and compress multiple images locally without uploading them.",
+    "url": "https://polygonewild.github.io/ImageShrink/",
+    "downloadUrl": "https://github.com/polygonewild/ImageShrink/releases/download/v1.4/ImageShrink_Free_v1.4.zip",
+    "softwareVersion": "1.4",
+    "isAccessibleForFree": true
+  }
+  </script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #0d1117;
+      color: #e6edf3;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .wrap {
+      width: min(1080px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 26px 0;
+      border-bottom: 1px solid #21262d;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      font-size: 14px;
+      color: #9da7b3;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+    }
+
+    .hero {
+      padding: 95px 0 70px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      border: 1px solid #30363d;
+      background: #161b22;
+      color: #9da7b3;
+      padding: 7px 13px;
+      border-radius: 999px;
+      font-size: 13px;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      margin: 0 auto 18px;
+      max-width: 850px;
+      font-size: clamp(42px, 7vw, 74px);
+      line-height: 1.02;
+      letter-spacing: -2px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 0 auto 34px;
+      color: #9da7b3;
+      font-size: 20px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 13px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 650;
+      border: 1px solid #30363d;
+    }
+
+    .primary {
+      background: #238636;
+      border-color: #2ea043;
+      color: white;
+    }
+
+    .secondary {
+      background: #21262d;
+    }
+
+    .tiny {
+      margin-top: 17px;
+      font-size: 13px;
+      color: #7d8590;
+    }
+
+    section {
+      padding: 68px 0;
+      border-top: 1px solid #21262d;
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 34px;
+      letter-spacing: -0.7px;
+    }
+
+    .section-intro {
+      color: #9da7b3;
+      max-width: 680px;
+      margin-bottom: 32px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      padding: 24px;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      background: #161b22;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 9px;
+      font-size: 18px;
+    }
+
+    .card p {
+      color: #9da7b3;
+      margin: 0;
+      font-size: 15px;
+    }
+
+    .workflow {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .step-number {
+      color: #3fb950;
+      font-weight: 700;
+      margin-bottom: 7px;
+    }
+
+    .privacy {
+      text-align: center;
+    }
+
+    .privacy strong {
+      color: #3fb950;
+    }
+
+    .faq details {
+      border-bottom: 1px solid #30363d;
+      padding: 18px 0;
+    }
+
+    .faq summary {
+      cursor: pointer;
+      font-weight: 650;
+      font-size: 17px;
+    }
+
+    .faq p {
+      color: #9da7b3;
+      max-width: 760px;
+    }
+
+    .final-cta {
+      text-align: center;
+    }
+
+    footer {
+      border-top: 1px solid #21262d;
+      padding: 30px 0 45px;
+      color: #7d8590;
+      font-size: 14px;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-row a {
+      color: #9da7b3;
+      text-decoration: none;
+      margin-left: 14px;
+    }
+
+    @media (max-width: 760px) {
+      .grid,
+      .workflow {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 65px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <div class="brand">ImageShrink</div>
+
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://github.com/polygonewild/ImageShrink">GitHub</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="wrap">
+
+      <div class="badge">Windows · Local processing · No uploads</div>
+
+      <h1>Resize and compress hundreds of images locally.</h1>
+
+      <p>
+        ImageShrink is a simple batch image resizer and compressor for Windows.
+        Set dimensions, percentage or a target file size and process multiple images at once.
+      </p>
+
+      <div class="buttons">
+        <a class="button primary"
+           href="https://github.com/polygonewild/ImageShrink/releases/download/v1.4/ImageShrink_Free_v1.4.zip">
+          Download Free v1.4
+        </a>
+
+        <a class="button secondary"
+           href="https://polygonewild.itch.io/imageshrink">
+          Get Full Version
+        </a>
+      </div>
+
+      <div class="tiny">
+        Free version · ZIP download · No account required
+      </div>
+
+    </div>
+  </section>
+
+
+  <section id="features">
+    <div class="wrap">
+
+      <h2>Batch image processing without the clutter.</h2>
+
+      <p class="section-intro">
+        Built for quick jobs where opening an editor, uploading files to a website,
+        or processing images one by one is unnecessary.
+      </p>
+
+      <div class="grid">
+
+        <div class="card">
+          <h3>Batch processing</h3>
+          <p>Add multiple images and process the entire batch in one run.</p>
+        </div>
+
+        <div class="card">
+          <h3>Resize by dimensions</h3>
+          <p>Set maximum width and height while keeping the workflow simple.</p>
+        </div>
+
+        <div class="card">
+          <h3>Percentage resizing</h3>
+          <p>Scale an entire image batch by percentage.</p>
+        </div>
+
+        <div class="card">
+          <h3>JPEG quality</h3>
+          <p>Control JPEG compression quality to balance size and image quality.</p>
+        </div>
+
+        <div class="card">
+          <h3>Target file size</h3>
+          <p>Reduce images toward a maximum file-size target for upload limits and delivery.</p>
+        </div>
+
+        <div class="card">
+          <h3>Batch ZIP export</h3>
+          <p>Download processed files individually or package the complete batch into a ZIP.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <section>
+    <div class="wrap">
+
+      <h2>Three steps.</h2>
+
+      <div class="workflow">
+
+        <div>
+          <div class="step-number">01</div>
+          <h3>Add images</h3>
+          <p class="section-intro">
+            Select or drag multiple images into ImageShrink.
+          </p>
+        </div>
+
+        <div>
+          <div class="step-number">02</div>
+          <h3>Choose your limits</h3>
+          <p class="section-intro">
+            Set dimensions, percentage, JPEG quality or target file size.
+          </p>
+        </div>
+
+        <div>
+          <div class="step-number">03</div>
+          <h3>Export the batch</h3>
+          <p class="section-intro">
+            Download individual results or export everything together.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <section id="privacy" class="privacy">
+    <div class="wrap">
+
+      <h2>Your images stay on your computer.</h2>
+
+      <p>
+        ImageShrink processes images <strong>locally</strong>.
+        Your source images are not uploaded to our servers.
+      </p>
+
+      <p>
+        No account. No cloud upload. No subscription required for the free version.
+      </p>
+
+    </div>
+  </section>
+
+
+  <section id="faq" class="faq">
+    <div class="wrap">
+
+      <h2>FAQ</h2>
+
+      <details>
+        <summary>Is ImageShrink free?</summary>
+        <p>
+          A free edition is available from GitHub. A full version with expanded
+          batch capabilities is available on itch.io.
+        </p>
+      </details>
+
+      <details>
+        <summary>Does ImageShrink upload my images?</summary>
+        <p>
+          No. Image processing is performed locally on your computer.
+        </p>
+      </details>
+
+      <details>
+        <summary>Can I resize multiple images at once?</summary>
+        <p>
+          Yes. ImageShrink is specifically designed for batch image resizing and compression.
+        </p>
+      </details>
+
+      <details>
+        <summary>Can I resize images to stay below a file-size limit?</summary>
+        <p>
+          ImageShrink includes a target file-size option for workflows where images
+          need to fit under an upload or delivery limit.
+        </p>
+      </details>
+
+      <details>
+        <summary>What operating system does it support?</summary>
+        <p>
+          ImageShrink is designed for Windows.
+        </p>
+      </details>
+
+    </div>
+  </section>
+
+
+  <section class="final-cta">
+    <div class="wrap">
+
+      <h2>Try ImageShrink.</h2>
+
+      <p class="section-intro" style="margin-left:auto;margin-right:auto;">
+        Start with the free version or get the full release on itch.io.
+      </p>
+
+      <div class="buttons">
+
+        <a class="button primary"
+           href="https://github.com/polygonewild/ImageShrink/releases/download/v1.4/ImageShrink_Free_v1.4.zip">
+          Download Free
+        </a>
+
+        <a class="button secondary"
+           href="https://polygonewild.itch.io/imageshrink">
+          Full Version on itch.io
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+
+<footer>
+  <div class="wrap footer-row">
+
+    <div>
+      ImageShrink · Windows batch image utility
+    </div>
+
+    <div>
+      <a href="https://github.com/polygonewild/ImageShrink">GitHub</a>
+      <a href="https://polygonewild.itch.io/imageshrink">itch.io</a>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
