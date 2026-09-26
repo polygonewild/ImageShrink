@@ -1,5 +1,15 @@
 # ImageShrink
+<img width="630" height="500" alt="COVER" src="https://github.com/user-attachments/assets/a0d67f96-6c84-4315-8058-35f9468319aa" />
 
+## Download
+
+### [Download ImageShrink Free v1.4](https://github.com/polygonewild/ImageShrink/releases/tag/v1.4)
+
+Try the free version locally on Windows.
+
+### [Get the Full Version on itch.io](https://polygonewild.itch.io/imageshrink)
+
+Need larger batch jobs and the full feature set? Get the full version on itch.io.
 **Free offline batch image resizer and compressor for Windows.**
 
 Resize and compress multiple images locally — no uploads, no account, no subscription.
@@ -37,14 +47,6 @@ Your images are not uploaded to a server.
 
 - Windows
 - Local / offline processing
-
-## Download
-
-Use the **Releases** section on this GitHub repository to download the latest free version.
-
-## Full Version
-
-The full version of ImageShrink is available on itch.io.
 
 ## About
 
